@@ -7,6 +7,12 @@
     "applicationVersion": {
       "version": "1.0.0"
     },
+    "dataSources": {
+      "JSONModelData": {
+        "uri": "model/Constant.json",
+        "type": "JSON"
+      }
+    },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}"
   },
@@ -47,6 +53,10 @@
       "cozy": true
     },
     "models": {
+      "":{
+        "type": "sap.ui.model.json.JSONModel",
+        "dataSource": "JSONModelData"
+      },
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -74,7 +84,9 @@
         {
           "name": "RouteMainView",
           "pattern": "RouteMainView",
-          "target": ["TargetMainView"]
+          "target": [
+            "TargetMainView"
+          ]
         }
       ],
       "targets": {
