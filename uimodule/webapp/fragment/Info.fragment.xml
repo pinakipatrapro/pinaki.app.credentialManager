@@ -1,10 +1,16 @@
 <core:FragmentDefinition
    xmlns="sap.m"
    xmlns:core="sap.ui.core" >
-   <Dialog  class="sapUiSizeCompact"
-        resizable= "true"
-        stretch= "true"
-        title="Add Credential ">
-      <Input placeholder="Credential Name" value="{/crendentialTemplate/name}" class="sapUiTinyMargin sapUiForceWidthAuto"/>
+   <Dialog  class="sapUiSizeCompact" 
+        title="About">
+      <VBox alignItems="Center" class="sapUiSmallMargin">
+         <Text text="Version: 1.0"/>
+         <Text text="About: Credential Manager"/>
+         <Text text="Email: pinaki.patra.pro@gmail.com"/>
+         <Text text="Author: Pinaki Patra"/>
+      </VBox>
+      <endButton>
+         <Button icon="sap-icon://sys-cancel" press="closeDialog"></Button>
+      </endButton>
    </Dialog>
 </core:FragmentDefinition>

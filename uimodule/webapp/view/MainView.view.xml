@@ -54,7 +54,7 @@
          <footer>
            <Toolbar design="Info" style="Clear">
              <ToolbarSpacer/> 
-             <Text text= " © Pinaki Patra 2021"/>
+             <Link press="openAboutDialog" text= " © Pinaki Patra 2021"/>
              <ToolbarSpacer/> 
            </Toolbar>
          </footer>
