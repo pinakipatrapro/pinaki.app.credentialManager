@@ -3,9 +3,10 @@ sap.ui.define(
         "sap/ui/core/mvc/Controller",
         "sap/ui/core/routing/History",
         "sap/ui/core/UIComponent",
-        "pinaki/app/credentialManager/model/formatter"
+        "pinaki/app/credentialManager/model/formatter",
+        "pinaki/app/credentialManager/api/CSVDownload"
     ],
-    function (Controller, History, UIComponent, formatter) {
+    function (Controller, History, UIComponent, formatter,CSVDownload) {
         "use strict";
 
         return Controller.extend("pinaki.app.credentialManager.controller.BaseController", {

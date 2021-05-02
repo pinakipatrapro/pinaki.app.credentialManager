@@ -7,9 +7,13 @@
       <Page title="{i18n>title}" backgroundDesign="Solid">
         <Toolbar design="Transparent" style="Clear"> 
           <ToolbarSpacer/>
+          <Button type="Transparent" icon="sap-icon://download" press="downloadCSV" tooltip="Download"/>
+          <Button type="Transparent" icon="sap-icon://refresh" press="reload" tooltip="Refresh"/>
           <Button type="Transparent" icon="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode"/>
         </Toolbar>
-         <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" backgroundDesign="Translucent" id="credList"
+         <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" 
+          backgroundDesign="Translucent" id="credList"
+          showSeparators="All"
           items="{
             path:'/aCreds',
             sorter : {
@@ -22,12 +26,12 @@
             <OverflowToolbar>
               <Title text="My Credentials " titleStyle="H3"/>
               <ToolbarSpacer/>
-              <SearchField width="30%" liveChange="onCredSearch"/>
+              <SearchField width="40%" liveChange="onCredSearch"/>
               <Button type="Accept" icon="sap-icon://add" press="onAddCredentialpress"/>
             </OverflowToolbar>
           </headerToolbar>
           <items>
-            <CustomListItem>
+            <CustomListItem class="sapUiSmallMarginBottom" type="Active" press="toggleEditMode">
               <HBox justifyContent="SpaceBetween" class="sapUiTinyMargin">
                 <VBox width="70%">
                   <Label text="{name}" visible="{=!${editMode}}"/>
@@ -35,10 +39,9 @@
 
                   <Input value="{username}" placeholder="User Name" visible="{editMode}"/>
                   <Input value="{password}" placeholder="Credential" visible="{editMode}"/>
-                  <Text  text="{username} | {password}" visible="{=!${editMode}}"/> 
+                  <Text  text="{username} | ***********" visible="{=!${editMode}}"/> 
                 </VBox>
                 <HBox>
-                  <Button type="Transparent" icon="{=${editMode}?'sap-icon://save':'sap-icon://edit'}" press="toggleEditMode"/>
                   <Button type="Reject" icon="sap-icon://delete" press="onDeleteCredPress"/>
                 </HBox>
               </HBox>
