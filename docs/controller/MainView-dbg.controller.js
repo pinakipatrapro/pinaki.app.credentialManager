@@ -1,4 +1,7 @@
-sap.ui.define(["pinaki/app/credentialManager/controller/BaseController"], function (Controller) {
+sap.ui.define([
+    "pinaki/app/credentialManager/controller/BaseController",
+    "sap/ui/model/Filter"
+], function (Controller,Filter) {
     "use strict";
 
     return Controller.extend("pinaki.app.credentialManager.controller.MainView", {
@@ -27,9 +30,30 @@ sap.ui.define(["pinaki/app/credentialManager/controller/BaseController"], functi
             oEvent.getSource().getModel().firePropertyChange();
             
         },
-
+        onCredSearch : function(oEvent){
+            var list  = this.getView().byId('credList');
+            list.getBinding('items').filter(new Filter({
+                filters: [
+                    new Filter({
+                      path: 'name',
+                      operator: "Contains",
+                      value1: oEvent.getParameter('newValue')
+                    }),
+                    new Filter({
+                      path: 'username',
+                      operator: "Contains",
+                      value1: oEvent.getParameter('newValue')
+                    })
+                  ],
+                  and: false
+            }))
+        },
         onAfterRendering : function(){
             this.loadFromLocal();
+        },
+        changeTheme : function(oEvent){
+            sap.ui.getCore().getConfiguration().getTheme() == "sap_fiori_3_dark"? 
+            sap.ui.getCore().applyTheme('sap_fiori_3') : sap.ui.getCore().applyTheme('sap_fiori_3_dark');
         }
     });
 });

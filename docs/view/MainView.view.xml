@@ -5,7 +5,11 @@
   <App id="idAppControl" >
     <pages>
       <Page title="{i18n>title}">
-         <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" backgroundDesign="Translucent"
+        <Toolbar design="Transparent" style="Clear"> 
+          <ToolbarSpacer/>
+          <Button type="Transparent" icon="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode"/>
+        </Toolbar>
+         <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" backgroundDesign="Translucent" id="credList"
           items="{
             path:'/aCreds',
             sorter : {
@@ -18,6 +22,7 @@
             <OverflowToolbar>
               <Title text="My Credentials" titleStyle="H2"/>
               <ToolbarSpacer/>
+              <SearchField width="30%" liveChange="onCredSearch"/>
               <Button type="Accept" icon="sap-icon://add" press="onAddCredentialpress"/>
             </OverflowToolbar>
           </headerToolbar>
