@@ -67,6 +67,7 @@ sap.ui.define(
             //     }
             // }
             loadFromLocal : function(){
+                this.getView().getModel().setSizeLimit(9999999);
                 this.getView().getModel().attachPropertyChange(function(oEvent){
                     Lockr.set('pinaki.app.credentialManager',oEvent.getSource().getProperty('/aCreds'));
                 })

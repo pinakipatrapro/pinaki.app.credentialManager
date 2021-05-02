@@ -33,6 +33,9 @@ sap.ui.define([
             this.getView().getModel().setProperty('/aCreds',aCreds);
             oEvent.getSource().getModel().updateBindings();
             oEvent.getSource().getModel().firePropertyChange();
+            sap.m.MessageToast.show("Credentials Deleted Successfully", {
+                duration: 10000, 
+            });
             
         },
         onCredSearch : function(oEvent){
