@@ -4,7 +4,7 @@
   xmlns:mvc="sap.ui.core.mvc">
   <App id="idAppControl" >
     <pages>
-      <Page title="{i18n>title}">
+      <Page title="{i18n>title}" backgroundDesign="Solid">
         <Toolbar design="Transparent" style="Clear"> 
           <ToolbarSpacer/>
           <Button type="Transparent" icon="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode"/>
@@ -20,7 +20,7 @@
          >
           <headerToolbar>
             <OverflowToolbar>
-              <Title text="My Credentials" titleStyle="H2"/>
+              <Title text="My Credentials " titleStyle="H3"/>
               <ToolbarSpacer/>
               <SearchField width="30%" liveChange="onCredSearch"/>
               <Button type="Accept" icon="sap-icon://add" press="onAddCredentialpress"/>
@@ -45,6 +45,13 @@
             </CustomListItem>
           </items>
          </List>
+         <footer>
+           <Toolbar design="Info" style="Clear">
+             <ToolbarSpacer/> 
+             <Text text= " © Pinaki Patra 2021"/>
+             <ToolbarSpacer/> 
+           </Toolbar>
+         </footer>
       </Page>
     </pages>
   </App>
