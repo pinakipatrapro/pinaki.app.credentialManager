@@ -15,10 +15,15 @@ sap.ui.define([
             this.getView().getModel().firePropertyChange();
         },
         toggleEditMode : function(oEvent){
-            oEvent.getSource().getBindingContext().getObject().editMode = !oEvent.getSource().getBindingContext().getObject().editMode;
+            var expectedState = !oEvent.getSource().getBindingContext().getObject().editMode;
+            this.getView().getModel().getProperty('/aCreds').forEach((e)=>{
+                e.editMode = false;
+            });
+            oEvent.getSource().getBindingContext().getObject().editMode = expectedState;
             oEvent.getSource().getBindingContext().getObject().lastChanged = new Date();
             oEvent.getSource().getModel().updateBindings();
             oEvent.getSource().getModel().firePropertyChange();
+            oEvent.getSource().getModel().refresh();
         },
         onDeleteCredPress : function(oEvent){
             var path = oEvent.getSource().getBindingContext().getPath();
@@ -50,10 +55,19 @@ sap.ui.define([
         },
         onAfterRendering : function(){
             this.loadFromLocal();
+            sap.m.MessageToast.show("Tap on an item to view, edit", {
+                duration: 10000, 
+            });
         },
         changeTheme : function(oEvent){
             sap.ui.getCore().getConfiguration().getTheme() == "sap_fiori_3_dark"? 
             sap.ui.getCore().applyTheme('sap_fiori_3') : sap.ui.getCore().applyTheme('sap_fiori_3_dark');
+        },
+        reload : function(){
+            location.reload();
+        },
+        downloadCSV : function(){
+            downloadCSVFromJson(`CredentialManager.csv`,this.getView().getModel().getProperty('/aCreds'))
         }
     });
 });
