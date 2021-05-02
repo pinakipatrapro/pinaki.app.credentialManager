@@ -1,15 +1,17 @@
  <mvc:View controllerName="pinaki.app.credentialManager.controller.MainView"
   displayBlock="true"
+  xmlns:core="sap.ui.core"
   xmlns="sap.m"
   xmlns:mvc="sap.ui.core.mvc">
   <App id="idAppControl" >
     <pages>
       <Page title="{i18n>title}" backgroundDesign="Solid">
         <Toolbar design="Transparent" style="Clear"> 
+          <Title text="Credentials " titleStyle="H3"/>
           <ToolbarSpacer/>
-          <Button type="Transparent" icon="sap-icon://download" press="downloadCSV" tooltip="Download"/>
-          <Button type="Transparent" icon="sap-icon://refresh" press="reload" tooltip="Refresh"/>
-          <Button type="Transparent" icon="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode"/>
+          <core:Icon src="sap-icon://download" press="downloadCSV" tooltip="Download" color="#49da83" class="sapUiTinyMarginEnd"/>
+          <core:Icon src="sap-icon://refresh" press="reload" tooltip="Refresh" color="#7099c1" class="sapUiTinyMarginEnd"/>
+          <core:Icon src="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode" color="#dc8e00"/>
         </Toolbar>
          <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" 
           backgroundDesign="Translucent" id="credList"
@@ -24,10 +26,9 @@
          >
           <headerToolbar>
             <OverflowToolbar>
-              <Title text="My Credentials " titleStyle="H3"/>
+              <SearchField width="60%" liveChange="onCredSearch"/>
               <ToolbarSpacer/>
-              <SearchField width="40%" liveChange="onCredSearch"/>
-              <Button type="Accept" icon="sap-icon://add" press="onAddCredentialpress"/>
+              <Button type="Transparent" icon="sap-icon://add" press="onAddCredentialpress"/>
             </OverflowToolbar>
           </headerToolbar>
           <items>
@@ -42,7 +43,7 @@
                   <Text  text="{username} | ***********" visible="{=!${editMode}}"/> 
                 </VBox>
                 <HBox>
-                  <Button type="Reject" icon="sap-icon://delete" press="onDeleteCredPress"/>
+                  <core:Icon  src="sap-icon://sys-cancel"  color="#e67676" press="onDeleteCredPress"/>
                 </HBox>
               </HBox>
             </CustomListItem>
