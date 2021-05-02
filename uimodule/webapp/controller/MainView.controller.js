@@ -86,6 +86,9 @@ sap.ui.define([
         },
         closeDialog : function(oEvent){
             oEvent.getSource().getParent().close();
+        },
+        share : function(oEvent,link){
+            window.open(`${link}${window.location.href}`, "_blank");
         }
     });
 });
