@@ -72,7 +72,12 @@ sap.ui.define(
                 if(!Lockr.get('pinaki.app.credentialManager')){
                     return;
                 }
-                this.getView().getModel().setProperty('/aCreds',Lockr.get('pinaki.app.credentialManager'));
+                this.getView().setBusy(true);
+                setTimeout(function(){
+                    this.getView().setBusy(false);
+                    this.getView().getModel().setProperty('/aCreds',Lockr.get('pinaki.app.credentialManager'));
+                    this.getView().getModel().updateBindings()
+                }.bind(this),1000);
                 
             }
         });
