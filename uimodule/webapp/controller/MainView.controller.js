@@ -71,6 +71,10 @@ sap.ui.define([
         },
         downloadCSV : function(){
             downloadCSVFromJson(`CredentialManager.csv`,this.getView().getModel().getProperty('/aCreds'))
+        },
+        resetAllData : function(){
+            this.getView().getModel().setProperty('/aCreds',[]);
+            this.getView().getModel().firePropertyChange();
         }
     });
 });

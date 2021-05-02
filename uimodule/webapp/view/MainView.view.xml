@@ -12,6 +12,8 @@
           <core:Icon src="sap-icon://download" press="downloadCSV" tooltip="Download" color="#49da83" class="sapUiTinyMarginEnd"/>
           <core:Icon src="sap-icon://refresh" press="reload" tooltip="Refresh" color="#7099c1" class="sapUiTinyMarginEnd"/>
           <core:Icon src="sap-icon://lightbulb" press="changeTheme" tooltip="Toggle Dark mode" color="#dc8e00"/>
+          
+          <core:Icon src="sap-icon://delete" press="resetAllData" tooltip="Reset All Data" color="#e67676" class="sapUiMediumMarginBegin"/>
         </Toolbar>
          <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" 
           backgroundDesign="Translucent" id="credList"
