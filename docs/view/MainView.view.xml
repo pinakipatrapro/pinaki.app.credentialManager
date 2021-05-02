@@ -17,7 +17,7 @@
         </Toolbar>
          <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" 
           backgroundDesign="Translucent" id="credList"
-          showSeparators="All"
+          showSeparators="None"
           items="{
             path:'/aCreds',
             sorter : {
