@@ -67,7 +67,7 @@ sap.ui.define([
             sap.ui.getCore().applyTheme('sap_fiori_3') : sap.ui.getCore().applyTheme('sap_fiori_3_dark');
         },
         reload : function(){
-            location.reload();
+            location.reload(true);
         },
         downloadCSV : function(){
             downloadCSVFromJson(`CredentialManager.csv`,this.getView().getModel().getProperty('/aCreds'))
