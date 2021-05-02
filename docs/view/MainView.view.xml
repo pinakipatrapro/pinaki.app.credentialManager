@@ -1,0 +1,46 @@
+ <mvc:View controllerName="pinaki.app.credentialManager.controller.MainView"
+  displayBlock="true"
+  xmlns="sap.m"
+  xmlns:mvc="sap.ui.core.mvc">
+  <App id="idAppControl" >
+    <pages>
+      <Page title="{i18n>title}">
+         <List class="sapUiSmallMargin sapUiForceWidthAuto sapUiSizeCompact" backgroundDesign="Translucent"
+          items="{
+            path:'/aCreds',
+            sorter : {
+              path : 'lastChanged',
+              descending  : true
+            }
+          }"
+         >
+          <headerToolbar>
+            <OverflowToolbar>
+              <Title text="My Credentials" titleStyle="H2"/>
+              <ToolbarSpacer/>
+              <Button type="Accept" icon="sap-icon://add" press="onAddCredentialpress"/>
+            </OverflowToolbar>
+          </headerToolbar>
+          <items>
+            <CustomListItem>
+              <HBox justifyContent="SpaceBetween" class="sapUiTinyMargin">
+                <VBox width="70%">
+                  <Label text="{name}" visible="{=!${editMode}}"/>
+                  <Input value="{name}" placeholder="Credential Name" visible="{editMode}"/>
+
+                  <Input value="{username}" placeholder="User Name" visible="{editMode}"/>
+                  <Input value="{password}" placeholder="Credential" visible="{editMode}"/>
+                  <Text  text="{username} | {password}" visible="{=!${editMode}}"/> 
+                </VBox>
+                <HBox>
+                  <Button type="Transparent" icon="{=${editMode}?'sap-icon://save':'sap-icon://edit'}" press="toggleEditMode"/>
+                  <Button type="Reject" icon="sap-icon://delete" press="onDeleteCredPress"/>
+                </HBox>
+              </HBox>
+            </CustomListItem>
+          </items>
+         </List>
+      </Page>
+    </pages>
+  </App>
+</mvc:View>

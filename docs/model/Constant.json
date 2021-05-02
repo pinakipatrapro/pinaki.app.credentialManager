@@ -1,0 +1,10 @@
+{
+    "crendentialTemplate" : {
+        "name" : "",
+        "username" : "",
+        "password" : "",
+        "lastChanged" : "",
+        "editMode":true        
+    },
+    "aCreds":[]
+}
